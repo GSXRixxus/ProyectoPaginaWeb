@@ -48,14 +48,18 @@
 </head>
 <body>
    
-    
-    <div class="container">
-        <h2>Registrar Entrada de Producto</h2>
-        <label>ID Producto:</label>
-        <input type="number" placeholder="ID del producto">
-        <label>Cantidad:</label>
-        <input type="number" placeholder="Cantidad">
-        <button>Guardar Entrada</button>
-    </div>
+    <body>
+        <div class="container">
+            <h2>Registrar Entrada de Producto</h2>
+            <form action="guardar.php" method="POST">
+                <label for="producto_id">ID Producto:</label>
+                <input type="number" id="producto_id" name="producto_id" placeholder="ID del producto" required>
+                
+                <label for="cantidad">Cantidad:</label>
+                <input type="number" id="cantidad" name="cantidad" placeholder="Cantidad" required>
+                
+                <button type="submit">Guardar Entrada</button>
+            </form>
+        </div>
 </body>
 </html>
