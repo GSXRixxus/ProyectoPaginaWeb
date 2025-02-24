@@ -1,43 +1,59 @@
 .parent {
     display: grid;
-    grid-template-columns: 280px 1fr; /* Sidebar de 280px y el resto para el contenido */
-    grid-template-rows: auto 1fr auto; /* Header, contenido y footer */
-    min-height: 100vh; /* Asegura que el layout ocupe toda la altura de la ventana */
-}
-
-.div1 { 
-    grid-area: 1 / 1 / 2 / 3; /* Header: ocupa toda la primera fila */
-    background-color: #f8f9fa; /* Color de fondo para el header */
-    padding: 1rem;
-    border-bottom: 1px solid #ddd;
+    grid-template-columns: 280px 1fr;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
 }
 
 .div2 { 
-    grid-area: 2 / 1 / 3 / 2; /* Sidebar: ocupa la segunda fila y la primera columna */
-    background-color: #343a40; /* Color de fondo oscuro para el sidebar */
+    grid-area: 2 / 1 / 3 / 2;
+    background-color: #343a40;
     color: white;
-    padding: 0; /* Elimina el padding para que no haya espacios no deseados */
     display: flex;
     flex-direction: column;
-    height: 100%; /* Ocupa toda la altura disponible */
+    justify-content: space-between; /* Espacio entre elementos */
+    padding: 0;
 }
 
-.div3 { 
-    grid-area: 3 / 1 / 4 / 3; /* Footer: ocupa toda la tercera fila */
-    background-color: #f8f9fa; /* Color de fondo para el footer */
-    padding: 1rem;
-    border-top: 1px solid #ddd;
+.sidebar-menu {
+    flex-grow: 1;
+}
+
+.sidebar-menu a {
+    display: block;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+}
+
+.sidebar-menu a:hover {
+    background-color: #495057;
+}
+
+.sidebar-menu .active {
+    background-color: #007bff;
+}
+
+.sidebar-footer {
+    padding: 10px;
+    border-top: 1px solid #555;
     text-align: center;
 }
 
-.div4 { 
-    grid-area: 2 / 2 / 3 / 3; /* Contenido principal: ocupa la segunda fila y la segunda columna */
-    padding: 1rem;
-    overflow: auto; /* Permite el desplazamiento si el contenido es largo */
+.sidebar-footer img {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
 }
 
-@media (min-width: 576px) {
-    .container, .container-sm {
-        max-width: 540px;
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .parent {
+        grid-template-columns: 1fr; 
+    }
+
+    .div2 {
+        grid-area: 1 / 1 / 2 / 2;
+        display: none; /* Oculta el sidebar en móviles */
     }
 }
